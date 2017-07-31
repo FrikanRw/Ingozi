@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -38,38 +38,34 @@
     </head>
     <body>
 	
-			<div id="page-title">Welcome to the Login page</div>
-			<div id="page-footer">Terms and conditions</div>
+        <section id="hazard_section" class="form_section"> <!-- Section with the buttons for register -->
+            <h1>
+                REPORT A HAZARD
+            </h1>
+
+            <form name="hazard_form" id="hazard_form" class="hazard_form" method="get"> <!-- Formular to report a hazard -->
+                <input type="hidden" name="name_form" id="name_form" value="hazard_form"/>
+
+                <label for="type" class="type_label">Type of Hazard:</label></br>
+                    <select name="type" id="type" required> <!-- ***************Introduce OnChange******************** -->
+                        <option value="none">Select a type of Hazard</option>
+                        <option value="slope">Slope</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="garbage">Garbage</option>
+                    </select>
+
+                <label for="desc" class="desc_label">Description:</label></br>
+                <textarea rows="4" cols="50" name="desc" id="desc" placeholder="Explain us the hazard..."></textarea></br>
+
+                <button type="button" id="img" class="img_bttn"><img class="photo" src="img/photo.png"></img></button><br><br>
+
+
+                <button type="button" id="create" class="button_create" onclick="send_form(this.form)"> ADD </button>
+
+            </form>
+        </section>
 			
 	    <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
-=======
-<!DOCTYPE html>
-<html>
-    <head>
-
-        
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<link rel="stylesheet" href="assets/leaflet/leaflet.css"/>
-		<link rel="stylesheet" href="css/webmap.css"/>			
-		
-		
-        <title>Hello World</title>
-		
-    </head>
-    <body>
-		<p>
-		this is the registration page
-		</p>
-		<div id="button"><a href="index.html">Back</a></div>	
-		<div id="button1"><a href="index.html">Submit</a></div>		
-
-    </body>
-</html>
->>>>>>> b7e5590d39b5b77b62c9528434474b9f1f4c211f
