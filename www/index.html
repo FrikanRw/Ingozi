@@ -6,7 +6,6 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <!-- Icon of the website -->
         <link href="img\icon.png" rel="shortcut icon" type="image/png">
@@ -21,9 +20,9 @@
         <div class="app">
             <h1>Welcome to</h1>
             <div class="image">
-                <a class="logo" href="#"></a>  <!-- Logo -->
+                <center><a class="logo" href="#"></a></center>  <!-- Logo -->
             </div>
-            <h2>[Alaska Settlement]</h2>
+            <h2>[ Alaska Settlement ]</h2>
         </div>
 
         <!-- ************************ LOGIN ************************* -->
@@ -43,10 +42,43 @@
             </form> 
         </section>
 
+
         <!-- ************************ REGISTER ************************* -->
+        <section id="register_section" class="form_section"> <!-- Section with the buttons for register -->
+            <h1>
+                Registration
+            </h1>
+            <form name="register_form" id="register_form" class="register_form" method="get"> <!-- Formular to register -->
+                <input type="hidden" name="name_form" id="name_form" value="register_form"/>
+
+                    <label for="user">User Name:</label><br>
+                    <input type="text" name="user" id="user" pattern="^[a-zA-Z]{6,15}$" title="Only Characters. Min 6, Max 15" placeholder="Only chars. Min 6, Max 15" required><br>
+
+                    <label for="pass">Password:</label><br>
+                    <input type="password" name="pass" id="pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,10}$" placeholder="Min 6, Max 10, lower and upper case and numb" required><br><br>
+
+                    <label for="mail">E-mail:</label><br>
+                    <input type="email" name="mail" id="mail" placeholder="example@gmail.com" required><br>
+
+                    <label for="tel" class="tel_label">Phone Number:</label></br>
+                    <input type="tel" name="tel" id="tel" pattern="[\+][\(]\d{2}[\)]\d{3}\d{3}\d{3}" title="Phone Number (Format: +(99)999999999)" placeholder=" +(99)999999999"></br>
+
+                    <!-- Terms of Use -->
+                    <input class="checkbox" type="checkbox" name="terms" id="terms" value="acepted" required>
+                    <label for="terms" class="terms"> I accept the </label>
+                    <a class="terms" href="terms.html" target="_blank">terms of use</a>
+                </div>
+                <center><button type="button" id="register_bttn" class="register_bttn" onclick="send_register(this.form)">Register</button></center>
+            </form>
+        </section>
 
 
-=======
+
+        <!-- ************************ Report Hazard ************************* -->
+        
+
+
+
         
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<link rel="stylesheet" href="assets/leaflet/leaflet.css"/>
@@ -61,7 +93,6 @@
 		</div>
         
 		
->>>>>>> e331e46365c7fd94aa605e43d34da9e8802816ff
         <script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="assets/leaflet/leaflet.js"></script>
