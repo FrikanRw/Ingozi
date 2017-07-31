@@ -28,18 +28,43 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
         <title>Ingozi</title>
     </head>
-    <body>
-	
-			<div id="page-title">Welcome to the Ingozi App</div>
-			<div id="body1"><button onclick="document.getElementById('body2').style.display = 'block'; document.getElementById('body1').style.display = 'none';">login</button></div>
-			<div id="page-footer">Terms and conditions</div>
+    <body> 
+		<div id="page-title">Welcome to the Ingozi App</div> 
+		
+		<div data-role="page" id="pageone">
+		  <div data-role="header">
+			<h1>Welcome To My Homepage</h1>
+		  </div>
+
+		  <div data-role="main" class="ui-content">
+			<p>Welcome! If you click on the link below, it will take you to Page Two.</p>
+			<a href="#pagetwo">Go to Page Two</a>
+		  </div>
+		
+		<div id=map> 
+		
+		
+		</div>
+		
+		  <div data-role="footer">
+			<h1>Footer Text</h1>
+		  </div>
+		</div> 
+
+
+			<!-- <div id="body1"><button onclick="document.getElementById('body2').style.display = 'block'; document.getElementById('body1').style.display = 'none';">login</button></div> -->
+			<!-- <div id="body2"><button onclick="document.getElementById('body1').style.display = 'block'; document.getElementById('body2').style.display = 'none'">register</button></div> -->
+			<!-- <div id="page-footer">Terms and conditions</div> -->
 			
 	    <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
