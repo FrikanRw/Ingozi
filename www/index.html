@@ -33,16 +33,44 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <!-- Icon of the website -->
+        <link href="img\icon.png" rel="shortcut icon" type="image/png">
+        <title>INGOZI</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
     </head>
     <body>
+        <!-- ************************ WELCOME ************************* -->
         <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+            <h1>Welcome to</h1>
+            <div class="image">
+                <a class="logo" href="#"></a>  <!-- Logo -->
             </div>
+            <h2>[Alaska Settlement]</h2>
         </div>
+
+        <!-- ************************ LOGIN ************************* -->
+        <section id="login_section" class="form_section"> <!-- Section with the buttons for register -->
+            <h2>
+                Login
+            </h2>
+            <form name="login_form" id="login_form" class="login_form"> <!-- Formular to register -->
+                <input type="hidden" name="name_form" id="name_form" value="login_form"/>
+
+                <label for="user">User Name:</label><br>
+                <input type="text" name="user" id="user" placeholder="Insert your user name" required><br>
+
+                <label for="pass">Password:</label><br>
+                <input type="password" name="pass" id="pass" placeholder="Insert your password" required><br><br>
+                <center><button type="button" id="login_bttn" class="login_bttn" onclick="send_login(this.form)">Login</button></center>
+            </form> 
+        </section>
+
+        <!-- ************************ REGISTER ************************* -->
+
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
