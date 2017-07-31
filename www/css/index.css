@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+ /* ************************************* GENERAL ************************************** */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -42,9 +44,37 @@ body {
     margin:0px;
     padding:0px;
     text-transform:uppercase;
+    text-align: center;
     width:100%;
+    background:url(../img/background.png) no-repeat center top;
+    position:absolute;             /* position in the center of the screen */
+}
+h1 {
+    font-size:24px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-weight:normal;
+    margin-top:20%;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+h2 {
+    font-size:18px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-weight:normal;
+    margin-top: 5%;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
 }
 
+<<<<<<< HEAD
+
+
+
+
+/* ************************************* MAP/BODY ************************************** */
+=======
 .body1 {
 	position: relative;
   	display: block;
@@ -54,72 +84,163 @@ body {
 }
 
 
+>>>>>>> e331e46365c7fd94aa605e43d34da9e8802816ff
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    
     position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
+    left:0%;
+    top:0%;
+    height:100%;                   /* text area height */
+    width:100%;                   /* text area width */
     text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+    padding:3em 0em 0em 0em;     /* image height is 200px (bottom 20px are overlapped with text) */
+      /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
+.image{
+    width: 30em;
+    height:6em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0;
+    position: absolute;
+    padding-left: 30%;
+}
+.logo {
+    width: 17em;
+    height: 4em;
+    background-image: url("../img/logo.png");
+    background-size: cover;
+    position:absolute;
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+
+/************************ FORMULAR STYLE *******************************/
+.form_section {
+    margin-top: 20em;
+    border-radius: 1em;
+    background-color: #FAFAFA;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 65%;
+    box-shadow: 0px 3px 10px #000, 0 0 0 0px #EEF5F7 inset;
+    position: absolute;
+    margin-left: 5em;
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+form label, legend {
+    font: bold 1em verdana, sans-serif;
 }
 
-.event.listening {
-    background-color:#333333;
-    display:block;
+form input {
+    background-position: right;
+    background-repeat: no-repeat;
+    width: auto;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-position: 98%;
 }
 
-.event.received {
-    background-color:#4B946A;
-    display:none;
+form input:hover {
+    border: 2px solid #77cddf;
 }
 
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+form input:focus {
+    outline: none;
+    border: 2px solid #77cddf;
 }
 
+textarea {
+    width: 90%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 1em;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    margin: 8px 0;
+}
+
+textarea:hover {
+    border: 2px solid #77cddf;
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #77cddf;
+}
+
+form select {
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 80%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-position: 98%;
+}
+
+form select:hover {
+    border: 2px solid #77cddf;
+}
+
+form select:focus {
+    outline: none;
+    border: 2px solid #77cddf;
+}
+
+form input:invalid:required {
+    background-image: url(../img/mandatory.png);
+    background-size: 30px auto;
+}
+
+form input:focus:invalid {
+    background-image: url(../img/incorrect.png);
+    background-size: 25px auto;
+}
+form input:valid {
+    background-image: url(../img/valid.png);
+    background-size: 25px auto;
+}
+
+button {
+    display: inline-block;
+    padding: 7px 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #2E64FE;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0 3px #999;
+}
+
+button:hover {
+    background-color: #0040FF;
+}
+
+<<<<<<< HEAD
+button:active {
+    background-color: #0040FF;
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
+}
+=======
+>>>>>>> e331e46365c7fd94aa605e43d34da9e8802816ff
