@@ -70,9 +70,6 @@ h2 {
 }
 
 
-
-
-
 /* ************************************* MAP/BODY ************************************** */
 .body1 {
 	position: relative;
@@ -246,4 +243,9 @@ button:active {
     background-color: #0040FF;
     box-shadow: 0 1px #666;
     transform: translateY(2px);
+}
+
+.photo {
+    width: 3em;
+    height: 2.8em;
 }
