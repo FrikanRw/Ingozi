@@ -68,11 +68,23 @@ h2 {
     text-align:center;
 }
 
+<<<<<<< HEAD
 
 
 
 
 /* ************************************* MAP/BODY ************************************** */
+=======
+.body1 {
+	position: relative;
+  	display: block;
+  	width: 60px;
+ 	height: 34px;
+ 	left: 30px;
+}
+
+
+>>>>>>> e331e46365c7fd94aa605e43d34da9e8802816ff
 /* Portrait layout (default) */
 .app {
     
@@ -224,8 +236,11 @@ button:hover {
     background-color: #0040FF;
 }
 
+<<<<<<< HEAD
 button:active {
     background-color: #0040FF;
     box-shadow: 0 1px #666;
     transform: translateY(2px);
 }
+=======
+>>>>>>> e331e46365c7fd94aa605e43d34da9e8802816ff
