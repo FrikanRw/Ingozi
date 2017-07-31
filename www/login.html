@@ -37,16 +37,23 @@
     </head>
     <body>
 	
-			<div id="page-title">Welcome to the Ingozi App</div>
-			<div id="body1"><button onclick="document.getElementById('body2').style.display = 'block'; document.getElementById('body1').style.display = 'none';">login</button></div>
-			<div id="body2"><button onclick="document.getElementById('body1').style.display = 'block'; document.getElementById('body2').style.display = 'none'">register</button></div>
-			<div id="page-footer">Terms and conditions</div>
+        <section id="login_section" class="form_section"> <!-- Section with the buttons for register -->
+            <h2>
+                Login
+            </h2>
+            <form name="login_form" id="login_form" class="login_form"> <!-- Formular to register -->
+                <input type="hidden" name="name_form" id="name_form" value="login_form"/>
+
+                <label for="user">User Name:</label><br>
+                <input type="text" name="user" id="user" placeholder="Insert your user name" required><br>
+
+                <label for="pass">Password:</label><br>
+                <input type="password" name="pass" id="pass" placeholder="Insert your password" required><br><br>
+                <center><button type="button" id="login_bttn" class="login_bttn" onclick="send_login(this.form)"><a href="webmap.html">Login</a></button></center>
+            </form> 
+        </section>
 			
-	    <script type="text/javascript" src="cordova.js">
-		
-		
-		
-		</script>
+	    <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
