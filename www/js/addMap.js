@@ -8,7 +8,7 @@ var defaultParameters = {
     service: 'WFS',
     version: '1.0.0',
     request: 'GetFeature',
-    typeName: 'capecodgis:monitor_station',
+    typeName: 'Devgroup2:hazards',
     maxFeatures: 200,
     outputFormat: 'text/javascript',
     format_options: 'callback: getJson'
