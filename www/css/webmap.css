@@ -14,7 +14,7 @@ html, body, #map {
 /* ************************************* NAV BAR ************************************** */
 .nav_bar{
     width: 100%;
-    height: 3em;
+    height: 4.8em;
     display: inline-block;
     background-color: #111;
     z-index: 1;
@@ -23,17 +23,49 @@ html, body, #map {
 .report_bttn {
 	position: relative;
 	float: right; 
-	margin-left: 10em;
+	margin-right: 0.5em;
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+	padding-left: 0.5em;
+    background-image: url("../img/r_button.png");
+    width: 50px;
+    height: 50px;	
 }
 
-/* ************************************* SIDE NAV ************************************** */
+button {
+    display: inline-block;
+    padding: 7px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #2E64FE;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0 3px #999;
+    margin-bottom: 0.3em;
+}
+button:hover {
+    background-color: #0040FF;
+}
+
+
+button:active {
+    background-color: #0040FF;
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
+}
+
+/* ***************************************************** SIDE NAV ****************************************************** */
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
+    height: 50%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 999; /* Stay on top */
-    top: 54px;
+    top: 64px;
     left: 0;
     background-color: #222222; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
@@ -74,7 +106,7 @@ html, body, #map {
 /* Open the sidenav */
 .open_sidenav {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     font-size: 30px;
     padding-left: 8px;
@@ -105,3 +137,56 @@ html, body, #map {
 }
 
 /* ************************ FORM *************************/
+#form_content {
+    position: absolute;
+    left:0;
+    height: 40vh;
+    width: 90%;
+    padding: 0;
+    margin-left: 5%;
+    top: 90px;
+}
+
+#destination {
+	margin-top: 3%;
+}
+
+.plus {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 40%;
+    margin-top: 5%;
+    background-image: url("../img/plus.png") !important;
+    background-size: cover;
+    overflow: hidden;
+}
+
+button:focus {outline:0;}
+
+.btn-success {
+	color: #fff;
+    background-color: #2E64FE;
+    border-color: #2E2EFE;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #2E64FE;
+    border-color: #2E2EFE;
+}
+.input-group-addon {
+	padding: 2px 8px !important;
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 2px !important;
+}
+
+.plus:active {
+	background-color: #2E2EFE;
+}
