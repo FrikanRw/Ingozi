@@ -26,8 +26,8 @@ $.ajax({
 //Styling options for webmarkers
 var geojsonElect= L.icon({
     iconUrl: 'img/elect_icon.png',
-    iconSize:     [38, 38], // size of the icon
-    iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
+    iconSize:     [30, 38], // size of the icon
+    iconAnchor:   [15, 32], // point of the icon which will correspond to marker's location
 });
 
 var geojsonGarb=L.icon({
@@ -66,15 +66,15 @@ function handleJson(data) {
            break;
 
            case "Garbage":
-           return L.marker(latlng, {icon: greenIcon});
+           return L.marker(latlng, {icon: geojsonGarb});
            break;
 
            case "Slope":
-           return L.marker(latlng, {icon: greenIcon});
+           return L.marker(latlng, {icon: geojsonSlope});
            break;
 
            default:
-           return L.marker(latlng, {icon: greenIcon});
+           return L.marker(latlng, {icon: geojsonOther});
          }
 
    }
