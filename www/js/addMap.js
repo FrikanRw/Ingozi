@@ -24,16 +24,6 @@ $.ajax({
     success: handleJson
 });
 
-function handleJson(data) {
-    L.geoJson(data, {
-        onEachFeature: onEachFeature,
-        pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, geojsonMarkerOptions);
-            //return L.marker(latlng);
-        }
-    }).addTo(map);
-}
-
 var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -41,4 +31,22 @@ var geojsonMarkerOptions = {
     weight: 1,
     opacity: 1,
     fillOpacity: 0.8
+};
+
+function handleJson(data) {
+
+  L.geoJson(data, {
+
+       onEachFeature: function (feature, my_Layer) {
+
+           my_Layer.bindPopup('<b><center>HAZARD INFORMATION</b>'+ '<center> Coordinates:' +feature.geometry.coordinates + '<center> Hazard Type:' +feature.properties.h_type + '<center> Reported by: ' + feature.properties.user_name);
+           console.log(feature.geometry.coordinates[0].toString());
+
+       },
+       pointToLayer: function (feature, latlng) {
+
+      return L.circleMarker(latlng, geojsonMarkerOptions);
+
+   }
+   }).addTo(map);
 };
