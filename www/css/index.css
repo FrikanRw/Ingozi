@@ -133,6 +133,20 @@ h2 {
     position: absolute;
     margin-left: 2em;
 }
+.r_form_section {
+    margin-top: 7em;
+    border-radius: 1em;
+    background-color: #FAFAFA;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 85%;
+    height: auto;
+    box-shadow: 0px 3px 10px #000, 0 0 0 0px #EEF5F7 inset;
+    position: absolute;
+    margin-left: 2em;
+}
 
 form label, legend {
     font: bold 1em verdana, sans-serif;
@@ -264,3 +278,9 @@ a:-webkit-any-link {
     text-decoration: none !important;
 }
 
+.register_button {
+    margin-top: 5%;
+}
+.info_bttn {
+    margin-top: 50%;
+}
