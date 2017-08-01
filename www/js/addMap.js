@@ -23,16 +23,31 @@ $.ajax({
     jsonpCallback: 'getJson',
     success: handleJson
 });
+//Styling options for webmarkers
+var geojsonElect= L.icon({
+    iconUrl: 'img/elect_icon.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
+});
 
-var geojsonMarkerOptions = {
-    radius: 8,
-    fillColor: "#ff7800",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
-};
+var geojsonGarb=L.icon({
+    iconUrl: 'img/garbage_icon.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
+});
 
+var geojsonOther=L.icon({
+    iconUrl: 'img/other_icon.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
+});
+var geojsonSlope = L.icon({
+    iconUrl: 'img/slope_icon.png',
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
+});
+
+//populate the webmap with layer ajax call
 function handleJson(data) {
 
   L.geoJson(data, {
@@ -40,12 +55,27 @@ function handleJson(data) {
        onEachFeature: function (feature, my_Layer) {
 
            my_Layer.bindPopup('<b><center>HAZARD INFORMATION</b>'+ '<center> Coordinates:' +feature.geometry.coordinates + '<center> Hazard Type:' +feature.properties.h_type + '<center> Reported by: ' + feature.properties.user_name);
-           
+
 
        },
+       // Switch function on hazard type
        pointToLayer: function (feature, latlng) {
+         switch (feature.properties.h_type){
+           case "Electrical":
+           return L.marker(latlng, {icon:geojsonElect});
+           break;
 
-      return L.circleMarker(latlng, geojsonMarkerOptions);
+           case "Garbage":
+           return L.marker(latlng, {icon: greenIcon});
+           break;
+
+           case "Slope":
+           return L.marker(latlng, {icon: greenIcon});
+           break;
+
+           default:
+           return L.marker(latlng, {icon: greenIcon});
+         }
 
    }
    }).addTo(map);
