@@ -1,4 +1,4 @@
-//Creating a webmap on map element with view centre on PTA
+//Creating a webmap on map element with view centre on Alaska
 	var map = L.map('map').setView([-25.731527, 28.446349], 16);
 
 //
