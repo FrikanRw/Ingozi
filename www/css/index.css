@@ -163,7 +163,7 @@ form input {
     border-radius: 1em;
     box-sizing: border-box;
     background-position: 98%;
-    padding-right: 5em;
+    padding-right: 1em;
 }
 
 form input:hover {
@@ -201,7 +201,7 @@ form select {
     background-position: right;
     background-repeat: no-repeat;
     width: 80%;
-    padding: 7px 20px;
+    padding: 7px 10px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -282,5 +282,16 @@ a:-webkit-any-link {
     margin-top: 5%;
 }
 .info_bttn {
-    margin-top: 50%;
+    margin-top: 150px;
+}
+
+.checkbox {
+    margin-left: 10px;
+    font: 18px verdana, sans-serif;
+    width: auto;
+}
+.terms:-webkit-any-link {
+    color: -webkit-link !important;
+    cursor: auto!important;
+    text-decoration: underline!important;
 }
