@@ -1,11 +1,22 @@
 //Creating a webmap on map element with view centre on PTA
-	var map = L.map('map').setView([-25.7487, 28.2380], 13);
+	var map = L.map('map').setView([-25.731527, 28.446349], 16);
 
 //
 	L.tileLayer('https://api.mapbox.com/styles/v1/frikan/ciuy0zfu501aq2jl84yq2hxah/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZnJpa2FuIiwiYSI6ImNpc3dzc2FrbDAwMmEydHBkMnB2dXRjNXUifQ.Nf2lV7VkWbzMA5OTJxFesw', {
 		maxZoom: 18,
 	
 	}).addTo(map);
+	
+//Geolocation with a marker and radius
+	map.locate({setView: true, maxZoom: 13});
+	function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(map)
+	 L.circle(e.latlng, radius).addTo(map);
+}
+
+map.on('locationfound', onLocationFound);
 
 //Adds attribution to map from mapbox	
 	var credits = L.control.attribution().addTo(map);
