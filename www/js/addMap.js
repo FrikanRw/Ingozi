@@ -40,7 +40,7 @@ function handleJson(data) {
        onEachFeature: function (feature, my_Layer) {
 
            my_Layer.bindPopup('<b><center>HAZARD INFORMATION</b>'+ '<center> Coordinates:' +feature.geometry.coordinates + '<center> Hazard Type:' +feature.properties.h_type + '<center> Reported by: ' + feature.properties.user_name);
-           console.log(feature.geometry.coordinates[0].toString());
+           
 
        },
        pointToLayer: function (feature, latlng) {
