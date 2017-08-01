@@ -1,0 +1,303 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+ /* ************************************* GENERAL ************************************** */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    text-align: center;
+    width:100%;
+    background:url(../img/background.png) no-repeat center top;
+    position:absolute;             /* position in the center of the screen */
+    display: block;
+}
+h1 {
+    font-size:24px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-weight:normal;
+    margin-top:5%;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+h2 {
+    font-size:18px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-weight:normal;
+    margin-top: 5%;
+    overflow:visible;
+    padding:0px;
+    margin-left: 0;
+    text-align:center;
+}
+
+
+/* ************************************* MAP/BODY ************************************** */
+.body1 {
+	position: relative;
+  	display: block;
+  	width: 60px;
+ 	height: 34px;
+ 	left: 30px;
+}
+
+
+/* Portrait layout (default) */
+.app {
+    display: block;
+    position:absolute;             /* position in the center of the screen */
+    left:0%;
+    top:0%;
+    margin-top: 0%;
+    padding-top: 0%;
+    height:auto;                   /* text area height */
+    width:100%;                   /* text area width */
+    text-align:center;
+    padding:3em 0em 0em 0em;     /* image height is 200px (bottom 20px are overlapped with text) */
+      /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+.image{
+    width: 100%;
+    height:auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.logo {
+    width: 17em;
+    height: 4.1em;
+    background-image: url("../img/logo.png");
+    background-size: cover;
+    position:relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/************************ FORMULAR STYLE *******************************/
+.form_section {
+    margin-top: 20em;
+    border-radius: 1em;
+    background-color: #FAFAFA;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 85%;
+    box-shadow: 0px 3px 10px #000, 0 0 0 0px #EEF5F7 inset;
+    position: absolute;
+    margin-left: 2em;
+}
+.r_form_section, .h_form_section {
+    margin-top: 7em;
+    border-radius: 1em;
+    background-color: #FAFAFA;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 85%;
+    height: auto;
+    box-shadow: 0px 3px 10px #000, 0 0 0 0px #EEF5F7 inset;
+    position: absolute;
+    margin-left: 2em;
+}
+
+form label, legend {
+    font: bold 1em verdana, sans-serif;
+}
+
+form input {
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 90%;
+    padding: 8px 20px;
+    margin: 0.5em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-position: 98%;
+    padding-right: 1em;
+}
+
+form input:hover {
+    border: 2px solid #77cddf;
+}
+
+form input:focus {
+    outline: none;
+    border: 2px solid #77cddf;
+}
+
+textarea {
+    width: 90%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 1em;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    margin: 8px 0;
+}
+
+textarea:hover {
+    border: 2px solid #77cddf;
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #77cddf;
+}
+
+form select {
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 80%;
+    padding: 7px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-position: 98%;
+}
+
+form select:hover {
+    border: 2px solid #77cddf;
+}
+
+form select:focus {
+    outline: none;
+    border: 2px solid #77cddf;
+}
+
+form input:invalid:required {
+    background-image: url(../img/mandatory.png);
+    background-size: 30px auto;
+}
+
+form input:focus:invalid {
+    background-image: url(../img/incorrect.png);
+    background-size: 25px auto;
+}
+form input:valid {
+    background-image: url(../img/valid.png);
+    background-size: 25px auto;
+}
+
+button {
+    display: inline-block;
+    padding: 7px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff !important;
+    background-color: #2E64FE;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0 3px #999;
+    margin-bottom: 0.3em;
+}
+
+button:hover {
+    background-color: #0040FF;
+}
+
+
+button:active {
+    background-color: #0040FF;
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
+}
+
+.photo {
+    width: 3em;
+    height: 2.8em;
+}
+
+.register_bttn {
+    margin-top: 20%;
+}
+.login_bttn {
+    margin-top: 3%;
+    width: 90px;
+}
+a:-webkit-any-link {
+    color: #fff !important;
+    cursor: auto;
+    text-decoration: none !important;
+}
+
+.register_button {
+    margin-top: 5%;
+}
+.info_bttn {
+    margin-top: 150px;
+}
+
+.checkbox {
+    margin-left: 10px;
+    font: 18px verdana, sans-serif;
+    width: auto;
+}
+.terms:-webkit-any-link {
+    color: -webkit-link !important;
+    cursor: auto!important;
+    text-decoration: underline!important;
+}
+
+.img_bttn {
+    width: 90%;
+    height: 50px;
+    padding: 0.3em;
+}

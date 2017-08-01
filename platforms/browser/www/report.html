@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- Icon of the website -->
+        <link href="img\icon.png" rel="shortcut icon" type="image/png">
+        <title>Ingozi</title>
+    </head>
+    <body>
+	
+        <section id="hazard_section" class="h_form_section"> <!-- Section with the buttons for register -->
+            <h1>
+                REPORT A HAZARD
+            </h1>
+
+            <form name="hazard_form" id="hazard_form" class="hazard_form" method="get"> <!-- Formular to report a hazard -->
+                <input type="hidden" name="name_form" id="name_form" value="hazard_form"/>
+
+                <label for="type" class="type_label">Type of Hazard:</label></br>
+                    <select name="type" id="type" required> <!-- ***************Introduce OnChange******************** -->
+                        <option value="none">Select a type of Hazard</option>
+                        <option value="slope">Slope</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="garbage">Garbage</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                <label for="desc" class="desc_label">Description:</label></br>
+                <textarea rows="4" cols="50" name="desc" id="desc" placeholder="Explain us the hazard..."></textarea></br>
+
+                <button type="button" id="img" class="img_bttn"><img class="photo" src="img/photo1.png"></img></button><br><br>
+
+
+                <button type="button" id="create" class="button_create" onclick="send_form(this.form)"> ADD </button>
+
+            </form>
+        </section>
+			
+	    <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

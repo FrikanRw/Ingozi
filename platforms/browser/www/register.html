@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- Icon of the website -->
+        <link href="img\icon.png" rel="shortcut icon" type="image/png">
+        <title>Ingozi</title>
+    </head>
+    <body>		
+		<section id="register_section" class="r_form_section"> <!-- Section with the buttons for register -->
+			<h1>
+				Registration
+			</h1>
+			<form name="register_form" id="register_form" class="register_form" method="get"> <!-- Formular to register -->
+				<input type="hidden" name="name_form" id="name_form" value="register_form"/>
+
+					<label for="user">User Name:</label><br>
+					<input type="text" name="user" id="user" pattern="^[a-zA-Z]{6,15}$" title="Only Characters. Min 6, Max 15" placeholder="Only chars. Min 6, Max 15" required><br>
+
+					<label for="pass">Password:</label><br>
+					<input type="password" name="pass" id="pass" pattern="^(?=.*\d)(?=.*[a-zA-Z])\w{6,10}$" placeholder="Min 6, Max 10, chars & numbs" required><br><br>
+
+					<label for="mail">E-mail:</label><br>
+					<input type="email" name="mail" id="mail" placeholder="example@gmail.com" required><br>
+
+					<label for="tel" class="tel_label">Phone Number:</label></br>
+					<input type="tel" name="tel" id="tel" pattern="[\+][\(]\d{2}[\)]\d{3}\d{3}\d{3}" title="Phone Number (Format: +(99)999999999)" placeholder=" +(99)999999999"></br>
+
+					<!-- Terms of Use -->
+					<input class="checkbox" type="checkbox" name="terms" id="terms" value="acepted" required>
+					<label for="terms" class="terms"> I accept the </label>
+					<a class="terms" href="terms.html" target="_blank">terms of use</a>
+				</div>
+				<center><button type="button" id="register_bttn" class="register_button" onclick="send_register(this.form)"><a href="webmap.html">Register</a></button></center>
+			</form>
+		</section>
+			
+	    <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
