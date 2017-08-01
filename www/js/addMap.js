@@ -1,7 +1,7 @@
     //geoserver wfs layer allowing for data adding and layers
 
 //url of the geoserver
-var rootUrl = 'http://tomcat.capecodgis.com/geoserver/capecodgis/ows';
+var rootUrl = 'http://41.185.27.219:8080/geoserver/Devgroup2/ows';
 
 //Parameters for WFS
 var defaultParameters = {
