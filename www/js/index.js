@@ -68,7 +68,7 @@ $(document).ready(function()
               longitude = position.coords.longitude.toFixed(4);
               latitude = position.coords.latitude.toFixed(4);
               accuracy = position.coords.accuracy;
-              
+
               document.getElementById("coord").value=[latitude,longitude];
 
             }
@@ -88,6 +88,7 @@ $(document).ready(function()
             var user=$("#username").val();
             var desc=$("#desc").val();
             var type=$("#type").val();
+            
             var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&insert=";
             if($.trim(user).length>0 & $.trim(Description).length>0 & $.trim(type).length>0)
             {
@@ -161,4 +162,9 @@ var pictureSource;   // picture source
 // Called if something bad happens.
 function onFail(message) {
     alert('Failed because: ' + message);
+}
+
+function send_login() {
+    document.getElementById('welcom_section').style.display="none";
+    document.getElementById('login_section').style.display="block";
 }
