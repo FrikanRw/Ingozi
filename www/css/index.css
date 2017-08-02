@@ -322,3 +322,18 @@ a:-webkit-any-link {
     padding: 0.3em;
 
 }
+
+.box {
+    margin-top: 1em;
+	margin-left: 2em;
+    background-color: #FAFAFA;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 85%;
+    height: auto;
+    position: absolute;
+}
+
+    
