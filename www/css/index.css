@@ -121,7 +121,7 @@ h2 {
 
 /************************ FORMULAR STYLE *******************************/
 .form_section {
-    margin-top: 20em;
+    margin-top: 10em;
     border-radius: 1em;
     background-color: #FAFAFA;
     padding-left: 1%;
@@ -297,7 +297,13 @@ a:-webkit-any-link {
 }
 
 .img_bttn {
-    width: 90%;
+    width: 50%;
     height: 50px;
     padding: 0.3em;
+}
+.button_create {
+    width: 50%;
+    height: 50px;
+    padding: 0.3em;
+
 }

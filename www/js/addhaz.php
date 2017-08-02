@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 //database login info
 	$host = '41.185.27.219';
 	$port = '5432';
@@ -15,8 +16,9 @@ if (!$conn) {
 
 // Set variables for sql query
 $id = pg_escape_string($_POST['Id']);
-$hazardType = pg_escape_string($_POST['surname']);
-$userName = pg_escape_string($_POST['emailaddress']);
+$hazardType = pg_escape_string($_POST['hazard_type']);
+$userName = pg_escape_string($_POST['username']);
+
 //NEEDS coordinates
 
 
@@ -30,6 +32,6 @@ $result = pg_query($query);
             echo "Error with query: " . $errormessage;
             exit();
         }
-        printf ("These Hazard has been recorded, Thank you!");
+        printf ("This Hazard has been recorded, Thank you!");
         pg_close();
         ?>
