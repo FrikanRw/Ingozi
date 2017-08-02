@@ -47,12 +47,32 @@
           var accuracy
 
 
+        function watchPosition() {
+            var options = {
+              enableHighAccuracy: true,
+              maximumAge: 3600000,
+              enableHighAccuracy: true,
+              }
+
+        var watchID = navigator.geolocation.watchPosition(geolocation, onError, options);
+
         function geolocation(position) {
           longitude = position.coords.latitude;
           latitude = position.coords.longitude;
           accuracy = position.coords.accuracy;
-            }
-        setInterval(geolocation, 5000);
+
+        }
+
+            function onError(error) {
+                alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+        }
+
+      }
+        var geolocate = setInterval(watchPosition, 5000);
+
+        if (accuracy == 5){
+          clearInterval(geolocate);
+        };
 
         $("#create").click(function(){
         var user=$("#username").val();
@@ -101,7 +121,7 @@
 
                 <label for="coord">Coordinates:</label><br>
                 <input type="text" name="coord" id="coord" disabled><br>
-               
+
                 <label for="type" class="type_label">Type of Hazard:</label></br>
                     <select name="type" id="type" required> <!-- ***************Introduce OnChange******************** -->
                         <option value="none">Select a type of Hazard</option>
