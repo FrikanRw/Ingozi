@@ -120,3 +120,69 @@ map.on('locationfound', onLocationFound);
         //document.getElementById("main").style.marginLeft= "0";
         document.body.style.backgroundColor = "white";
     }
+
+//LOCATION
+$(document).ready(function()
+            { var longitude
+              var latitude
+              var accuracy
+
+
+            function watchPosition() {
+                var options = {
+                  enableHighAccuracy: true,
+                  maximumAge: 3600000,
+                  enableHighAccuracy: true,
+                  }
+
+            var watchID = navigator.geolocation.watchPosition(geolocation, onError, options);
+
+            function geolocation(position) {
+              longitude = position.coords.longitude.toFixed(4);
+              latitude = position.coords.latitude.toFixed(4);
+              accuracy = position.coords.accuracy;
+              
+              document.getElementById("place").value=[latitude,longitude];
+
+            }
+
+                function onError(error) {
+                    alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+            }
+
+          }
+            var geolocate = setInterval(watchPosition, 5000);
+
+            if (accuracy == 5){
+              clearInterval(geolocate);
+            };
+
+            $("#create").click(function(){
+            var user=$("#username").val();
+            var desc=$("#desc").val();
+            var type=$("#type").val();
+            var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&insert=";
+            if($.trim(user).length>0 & $.trim(Description).length>0 & $.trim(type).length>0)
+            {
+            $.ajax({
+            type: "POST",
+            url:"http://localhost/phonegap/database/insert.php",
+            data: dataString,
+            crossDomain: true,
+            cache: false,
+            beforeSend: function(){ $("#create").val('Connecting...');},
+            success: function(data){
+            if(data=="success")
+            {
+            alert("inserted");
+            $("#create").val('submit');
+            }
+            else if(data=="error")
+            {
+            alert("error");
+            }
+            }
+            });
+            }return false;
+            });
+            });
