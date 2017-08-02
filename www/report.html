@@ -76,7 +76,7 @@
     </head>
     <body>
 
-        <section id="hazard_section" class="form_section"> <!-- Section with the buttons for register -->
+        <section id="hazard_section" class="h_form_section"> <!-- Section with the buttons for register -->
             <h1>
                 REPORT A HAZARD
             </h1>
@@ -84,6 +84,12 @@
             <form name="hazard_form" id="hazard_form" class="hazard_form" method="get"> <!-- Formular to report a hazard -->
                 <input type="hidden" name="name_form" id="name_form" value="hazard_form"/>
 
+                <label for="user">User Name:</label><br>
+                <input type="text" name="user" id="user" pattern="^[a-zA-Z]{6,15}$" disabled><br>
+
+                <label for="coord">Coordinates:</label><br>
+                <input type="text" name="coord" id="coord" disabled><br>
+               
                 <label for="type" class="type_label">Type of Hazard:</label></br>
                     <select name="type" id="type" required> <!-- ***************Introduce OnChange******************** -->
                         <option value="none">Select a type of Hazard</option>
