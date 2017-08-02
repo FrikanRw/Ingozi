@@ -27,6 +27,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="cordova.js"></script>
   <link rel="stylesheet" href="css/webmap.css" />
+  
   <script>
 
   $( document ).ready(function() {
@@ -48,52 +49,53 @@
 
 <body>
 
-  <!-- **********************   NAVIGATION BAR    ************************ -->
-  <div class="nav_bar">
 
-    <!-- **********************   SIDE NAV    ************************ -->
-    <div id="sidenav" class="sidenav">
-      <!-- Close Button -->
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <!-- **********************   NAVIGATION BAR    ************************ -->
+      <div class="nav_bar">
 
-      <!-- FORM -->
-      <div class="container-fluid" id="all">
-        <div class="row-fluid">
-          <div id="form_content">
-            <div>
-              <form>
-                <div class="group">
-                  <div class="input-group">
-                    <span class="input-group-addon">
-                                                <i class="glyphicon glyphicon-map-marker"></i>
-                                            </span>
-                    <input id="place" type="text" class="form-control" name="place" placeholder="Location" disabled>
-                  </div>
-                  <div class="input-group" id='destination'>
-                    <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-screenshot"></span></p>
-                    </span>
-                    <input id="desti" type="text" class="form-control" name="desti" placeholder="Destination">
-                  </div>
+        <!-- **********************   SIDE NAV    ************************ -->
+        <div id="sidenav" class="sidenav">
+          <!-- Close Button -->
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+          <!-- FORM -->
+          <div class="container-fluid" id="all">
+            <div class="row-fluid">
+              <div id="form_content">
+                <div>
+                  <form>
+                    <div class="group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                                </span>
+                        <input id="place" type="text" class="form-control" name="place" placeholder="Location" disabled>
+                      </div>
+                      <div class="input-group" id='destination'>
+                        <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-screenshot"></span></p>
+                        </span>
+                        <input id="desti" type="text" class="form-control" name="desti" placeholder="Destination">
+                      </div>
+                    </div>
+                  </form>
                 </div>
-              </form>
+                <button type="button" id="sendLocation" class="plus btn-success"></button>
+              </div>
             </div>
-            <button type="button" id="sendLocation" class="plus btn-success"></button>
           </div>
+
+
         </div>
+
+        <!-- Use any element to open the sidenav -->
+        <span onclick="openNav()" href="#" class="open_sidenav">&#9776; </span>
+
+        <button type="button" id="report_bttn" class="report_bttn" onclick="send_webmap(this.form)"><a href="report.html" class="report_btt"></a></button>
       </div>
 
 
-    </div>
-
-    <!-- Use any element to open the sidenav -->
-    <span onclick="openNav()" href="#" class="open_sidenav">&#9776; </span>
-
-    <button type="button" id="report_bttn" class="report_bttn" onclick="send_webmap(this.form)"><a href="report.html" class="report_btt"></a></button>
-  </div>
-
-
-<div id="map"></div>
+    <div id="map"></div>
 
 </body>
 </html>

@@ -88,13 +88,13 @@ $(document).ready(function()
             var user=$("#username").val();
             var desc=$("#desc").val();
             var type=$("#type").val();
-            
+
             var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&insert=";
             if($.trim(user).length>0 & $.trim(Description).length>0 & $.trim(type).length>0)
             {
             $.ajax({
             type: "POST",
-            url:"http://localhost/phonegap/database/insert.php",
+            url:"htpp://localhost/js/addhaz.php",
             data: dataString,
             crossDomain: true,
             cache: false,

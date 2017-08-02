@@ -24,7 +24,7 @@ $userName = pg_escape_string($_POST['username']);
 
 
 //SQL query for commit ****NEEDS ST_FUNCTION TO CONVERT COORDINATES TO RIGHT FORMAT
-$query = "INSERT INTO hazards(id, h_type, user_name, capture_t) VALUES('" . $id . "', '" . $hazardType . "','".$hazardType."', CURRENT_TIMESTAMP, )";
+$query = "INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES('" . $id . "', '" . $hazardType . "','".$hazardType."', CURRENT_TIMESTAMP, ST_MakePoint($latitude , $longitude));
 
 //Check if query works
 $result = pg_query($query);
