@@ -1,13 +1,38 @@
-function implementMap(){
-//Creating a webmap on map element with view centre on Alaska
+$(document).ready( function() {
 
-	var map = L.map('map').setView([-25.731527, 28.446349], 16);
+// =============================
+// ========== LEAFLET ==========
+// =============================
 
-//
-	L.tileLayer('https://api.mapbox.com/styles/v1/frikan/ciuy0zfu501aq2jl84yq2hxah/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZnJpa2FuIiwiYSI6ImNpc3dzc2FrbDAwMmEydHBkMnB2dXRjNXUifQ.Nf2lV7VkWbzMA5OTJxFesw', {
+// initialize the map on the "map" div with a given center and zoom
+map = L.map('map').setView([-25.731527, 28.446349], 16);
+
+// load a tile layer
+var OpenStreetMap =L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution: 'Map data <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+      maxZoom: 20,
+      minZoom: 11
+    });
+//OpenStreetMap.addTo(map)
+
+var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+    {
+        maxZoom: 20,
+        attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+
+var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+        maxZoom: 20,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+
+var mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/frikan/ciuy0zfu501aq2jl84yq2hxah/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZnJpa2FuIiwiYSI6ImNpc3dzc2FrbDAwMmEydHBkMnB2dXRjNXUifQ.Nf2lV7VkWbzMA5OTJxFesw', {
 		maxZoom: 18,
 
-	}).addTo(map);
+	});
+mapbox.addTo(map)
+
 
 //Geolocation with a marker and radius
 	map.locate({setView: true, maxZoom: 13});
@@ -19,6 +44,7 @@ function implementMap(){
 }
 
 map.on('locationfound', onLocationFound);
+map.on('click', onMapClick);
 
 //Adds attribution to map from mapbox
 	var credits = L.control.attribution().addTo(map);
@@ -105,7 +131,7 @@ map.on('locationfound', onLocationFound);
 		   }
 		   }).addTo(map);
 		};
-}
+});
 
 /************************* SIDE NAV *****************************/
     /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
@@ -186,3 +212,20 @@ $(document).ready(function()
             }return false;
             });
             });
+
+function onMapClick(e) {
+ latitude= e.latlng.lat.toFixed(4);
+ longitude= e.latlng.lng.toFixed(4);
+
+ document.getElementById('desti').value=[latitude, longitude]
+
+
+ myIcon = L.icon({
+   iconUrl: 'img/desti.svg',
+   iconSize: [20, 20]
+ });
+
+
+ marker=L.marker([latitude, longitude],{icon: myIcon}).addTo(map);
+
+}

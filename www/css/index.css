@@ -272,7 +272,6 @@ button:hover {
 button:active {
     background-color: #0040FF;
     box-shadow: 0 1px #666;
-    transform: translateY(2px);
 }
 
 .photo {
@@ -297,7 +296,11 @@ a:-webkit-any-link {
     margin-top: 5%;
 }
 .info_bttn {
-    margin-top: 150px;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%);
+    bottom: 2em;
 }
 
 .checkbox {
