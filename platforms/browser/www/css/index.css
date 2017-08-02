@@ -121,7 +121,7 @@ h2 {
 
 /************************ FORMULAR STYLE *******************************/
 .form_section {
-    margin-top: 20em;
+    margin-top: 10em;
     border-radius: 1em;
     background-color: #FAFAFA;
     padding-left: 1%;
@@ -133,8 +133,23 @@ h2 {
     position: absolute;
     margin-left: 2em;
 }
-.r_form_section, .h_form_section {
+.r_form_section {
     margin-top: 7em;
+    border-radius: 1em;
+    background-color: #FAFAFA;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 85%;
+    height: auto;
+    box-shadow: 0px 3px 10px #000, 0 0 0 0px #EEF5F7 inset;
+    position: absolute;
+    margin-left: 2em;
+}
+
+.h_form_section {
+    margin-top: 2.5em;
     border-radius: 1em;
     background-color: #FAFAFA;
     padding-left: 1%;
@@ -200,7 +215,7 @@ textarea:focus {
 form select {
     background-position: right;
     background-repeat: no-repeat;
-    width: 80%;
+    width: 90%;
     padding: 7px 10px;
     margin: 8px 0;
     display: inline-block;
@@ -297,7 +312,15 @@ a:-webkit-any-link {
 }
 
 .img_bttn {
-    width: 90%;
+    width: 50%;
     height: 50px;
     padding: 0.3em;
 }
+.button_create {
+    width: 50%;
+    height: 50px;
+    padding: 0.3em;
+
+}
+
+    

@@ -24,19 +24,6 @@ map.on('locationfound', onLocationFound);
 	var credits = L.control.attribution().addTo(map);
 	credits.addAttribution('© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>');
 
-/************************* SIDE NAV *****************************/
-    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-    function openNav() {
-        document.getElementById("sidenav").style.width = "250px";
-        //document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-
-    function closeNav() {
-        document.getElementById("sidenav").style.width = "0";
-        //document.getElementById("main").style.marginLeft= "0";
-        document.body.style.backgroundColor = "white";
-    }
 
 		//url of the geoserver
 		var rootUrl = 'http://41.185.27.219:8080/geoserver/Devgroup2/ows';
@@ -119,3 +106,83 @@ map.on('locationfound', onLocationFound);
 		   }).addTo(map);
 		};
 }
+
+/************************* SIDE NAV *****************************/
+    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+    function openNav() {
+        document.getElementById("sidenav").style.width = "250px";
+        //document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("sidenav").style.width = "0";
+        //document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+
+//LOCATION
+$(document).ready(function()
+            { var longitude
+              var latitude
+              var accuracy
+
+
+            function watchPosition() {
+                var options = {
+                  enableHighAccuracy: true,
+                  maximumAge: 3600000,
+                  enableHighAccuracy: true,
+                  }
+
+            var watchID = navigator.geolocation.watchPosition(geolocation, onError, options);
+
+            function geolocation(position) {
+              longitude = position.coords.longitude.toFixed(4);
+              latitude = position.coords.latitude.toFixed(4);
+              accuracy = position.coords.accuracy;
+              
+              document.getElementById("place").value=[latitude,longitude];
+
+            }
+
+                function onError(error) {
+                    alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+            }
+
+          }
+            var geolocate = setInterval(watchPosition, 5000);
+
+            if (accuracy == 5){
+              clearInterval(geolocate);
+            };
+
+            $("#create").click(function(){
+            var user=$("#username").val();
+            var desc=$("#desc").val();
+            var type=$("#type").val();
+            var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&insert=";
+            if($.trim(user).length>0 & $.trim(Description).length>0 & $.trim(type).length>0)
+            {
+            $.ajax({
+            type: "POST",
+            url:"http://localhost/phonegap/database/insert.php",
+            data: dataString,
+            crossDomain: true,
+            cache: false,
+            beforeSend: function(){ $("#create").val('Connecting...');},
+            success: function(data){
+            if(data=="success")
+            {
+            alert("inserted");
+            $("#create").val('submit');
+            }
+            else if(data=="error")
+            {
+            alert("error");
+            }
+            }
+            });
+            }return false;
+            });
+            });

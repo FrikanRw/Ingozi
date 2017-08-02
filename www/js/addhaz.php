@@ -9,24 +9,21 @@ header("Access-Control-Allow-Origin: *");
 
 //connect to postgresDB
   $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-if (!$conn) {
-  echo "Not connected : " . pg_error();
-  exit;
-}
-
+	if (!$conn) {
+	  echo "Not connected : " . pg_error();
+	  exit;
+	}
 
 // Set variables for sql query
 $id = pg_escape_string($_POST['Id']);
 $hazardType = pg_escape_string($_POST['hazard_type']);
 $userName = pg_escape_string($_POST['username']);
+$longitude =
+$latitude =
 
-//NEEDS coordinates
+//SQL INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES (1, 'Slope', 'Frikan', CURRENT_TIMESTAMP, ST_SetSRID(ST_MakePoint(-25.7670,28.2657),4326));
+$query = "INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES(2, 'Garbage', 'Frikan', CURRENT_TIMESTAMP, ST_SetSRID(ST_MakePoint(-25.7670,28.2657),4326));"
 
-
-//SQL query for commit ****NEEDS ST_FUNCTION TO CONVERT COORDINATES TO RIGHT FORMAT
-$query = "INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES('" . $id . "', '" . $hazardType . "','".$hazardType."', CURRENT_TIMESTAMP, ST_MakePoint($latitude , $longitude));
-
-//Check if query works
 $result = pg_query($query);
         if (!$result) {
             $errormessage = pg_last_error();
@@ -35,4 +32,5 @@ $result = pg_query($query);
         }
         printf ("This Hazard has been recorded, Thank you!");
         pg_close();
-        ?>
+
+?>
