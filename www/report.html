@@ -39,15 +39,27 @@
         <!--JAVASRIPT-->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function()
-        {
+        { var longitude
+          var latitude
+          var accuracy
+
+
+        function geolocation(position) {
+          longitude = position.coords.latitude;
+          latitude = position.coords.longitude;
+          accuracy = position.coords.accuracy;
+            }
+        setInterval(geolocation, 5000);
+
         $("#create").click(function(){
-        var title=$("#title").val();
-        var duration=$("#duration").val();
-        var price=$("#price").val();
-        var dataString="title="+title+"&duration="+duration+"&price="+price+"&insert=";
-        if($.trim(title).length>0 & $.trim(duration).length>0 & $.trim(price).length>0)
+        var user=$("#username").val();
+        var desc=$("#desc").val();
+        var type=$("#type").val();
+        var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&insert=";
+        if($.trim(user).length>0 & $.trim(Description).length>0 & $.trim(type).length>0)
         {
         $.ajax({
         type: "POST",
