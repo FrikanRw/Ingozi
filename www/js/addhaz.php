@@ -14,6 +14,7 @@ if (!$conn) {
   exit;
 }
 
+
 // Set variables for sql query
 $id = pg_escape_string($_POST['Id']);
 $hazardType = pg_escape_string($_POST['hazard_type']);
