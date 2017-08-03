@@ -20,7 +20,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+
     },
 
     // deviceready Event Handler
@@ -29,6 +29,8 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        pictureSource = navigator.camera.PictureSourceType;
+        destinationType = navigator.camera.DestinationType;
           },
 
     // Update DOM on a Received Event
@@ -43,6 +45,9 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+var longitude
+var latitude
+var accuracy
 
 app.initialize();
 
@@ -50,11 +55,7 @@ app.initialize();
 
 //LOCATION
 $(document).ready(function()
-            { var longitude
-              var latitude
-              var accuracy
-
-
+            {
             function watchPosition() {
                 var options = {
                   enableHighAccuracy: true,
@@ -84,7 +85,8 @@ $(document).ready(function()
               clearInterval(geolocate);
             };
 
-            $("#create").click(function(){
+            function subahaz(){
+            console.log("Click");
             var user=$("#username").val();
             var desc=$("#desc").val();
             var type=$("#type").val();
@@ -112,8 +114,8 @@ $(document).ready(function()
             }
             });
             }return false;
-            });
-            });
+            };
+
 
 
 
@@ -121,19 +123,18 @@ $(document).ready(function()
 var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
     // Wait for Cordova to connect with the device
-    document.addEventListener("deviceready", onDeviceReady, false);
-    // Cordova is ready to be used!
+      // Cordova is ready to be used!
     function onDeviceReady() {
         pictureSource = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
     }
-    // Called when a photo is successfully retrieved       
+    // Called when a photo is successfully retrieved
     function onPhotoDataSuccess(imageData) {
         // Uncomment to view the base64 encoded image data
         //  console.log(imageData);
         // Get image handle
         var smallImage = document.getElementById('smallImage');
-        // Unhide image elements      
+        // Unhide image elements
         smallImage.style.display = 'block';
         // Show the captured photo
         // The inline CSS rules are used to resize the image
@@ -143,12 +144,12 @@ var pictureSource;   // picture source
     function onPhotoURISuccess(imageURI) {
         // Uncomment to view the image file URI
         //console.log(imageURI);
-        // Get image handle  
+        // Get image handle
         var largeImage = document.getElementById('largeImage');
-        // Unhide image elements          
+        // Unhide image elements
         largeImage.style.display = 'block';
         // Show the captured photo
-        // The inline CSS rules are used to resize the image          
+        // The inline CSS rules are used to resize the image
         largeImage.src = imageURI;
     }
     // A button will call this function
@@ -168,3 +169,5 @@ function send_login() {
     document.getElementById('welcom_section').style.display="none";
     document.getElementById('login_section').style.display="block";
 }
+
+});

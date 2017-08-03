@@ -40,7 +40,23 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        
+        <script>function submitHZ(){
+          console.log(latitude);
+          var user=$("#username").val();
+          var desc=$("#desc").val();
+          var type=$("#type").val();
+
+          var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&long="+longitude+"&lat="+latitude;
+
+          $.ajax({
+          type: "POST",
+          url:"htpp://localhost/js/addhaz.php",
+          data: dataString,
+          crossDomain: true,
+          cache: false,
+          });
+        };</script>
+
         <title>Ingozi</title>
     </head>
     <body>
@@ -73,8 +89,8 @@
 				<button type="button" id="img" class="img_bttn" onclick="capturePhoto();"><img class="photo" src="img/photo1.png"></img></button><br><br>
 				<img style="display: none; width: 60px; height: 60px;" id="smallImage" src="" alt="" />
 				<img style="display: none;" id="largeImage" src="" alt="" />
-                <button type="button" id="create" class="button_create"><img class="photo" src="img/add.png"><a href="webmap.html" class="report_btt"></a></a></img></button>
-				
+        <button type="button" id="create" class="button_create" onclick="submitHZ()"><img class="photo" src="img/add.png"><a href="webmap.html" class="report_btt"></a></a></img></button>
+
             </form>
         </section>
 

@@ -15,14 +15,14 @@ header("Access-Control-Allow-Origin: *");
 	}
 
 // Set variables for sql query
-$id = pg_escape_string($_POST['Id']);
-$hazardType = pg_escape_string($_POST['hazard_type']);
-$userName = pg_escape_string($_POST['username']);
-$longitude =
-$latitude =
+$id = "TEST"
+$hazardType = $_POST['hazard_type']);
+$userName = $_POST['username']);
+$longitude =$_POST['long'];
+$latitude =$_POST['long'];
 
 //SQL INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES (1, 'Slope', 'Frikan', CURRENT_TIMESTAMP, ST_SetSRID(ST_MakePoint(-25.7670,28.2657),4326));
-$query = "INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES(2, 'Garbage', 'Frikan', CURRENT_TIMESTAMP, ST_SetSRID(ST_MakePoint(-25.7670,28.2657),4326));"
+$query = "INSERT INTO hazards(id, h_type, user_name, capture_t,geom) VALUES('$id', '$hazardType', 'Frikan', CURRENT_TIMESTAMP, ST_SetSRID(ST_MakePoint($longitude,$latitude),4326));"
 
 $result = pg_query($query);
         if (!$result) {
