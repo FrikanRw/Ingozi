@@ -41,6 +41,7 @@
         <script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         
+>>>>>>> Stashed changes
 
         <title>Ingozi</title>
     </head>
@@ -60,16 +61,16 @@
 		  crossDomain: true,
 		  cache: false,
 		  });
-		  
-		  
+
+
 		  type = document.getElementById("type").value;
-		  
+
 		  if (document.getElementById("type").value!="none"){
 			alert("The hazard has been registered in the database.");
 			document.getElementById("type").value="";
 			document.getElementById("desc").value="";
 			document.getElementById("coord").value="";
-			
+
 			window.open("webmap.html");
 		  } else {
 			alert("The field 'Type of Hazard' is mandatory.");
@@ -112,5 +113,5 @@
         </section>
 
     </body>
-	
+
 </html>
