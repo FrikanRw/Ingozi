@@ -69,6 +69,7 @@ $(document).ready(function()
               longitude = position.coords.longitude.toFixed(4);
               latitude = position.coords.latitude.toFixed(4);
               accuracy = position.coords.accuracy;
+              console.log(accuracy);
 
               document.getElementById("coord").value=[latitude,longitude];
 
