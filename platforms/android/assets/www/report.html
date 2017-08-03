@@ -50,7 +50,7 @@
 
           $.ajax({
           type: "POST",
-          url:"http://vi.frikancarto.co.za/addhaz.php",
+          url:"http://41.185.27.219/devgroup2/addhaz.php",
           data: dataString,
           crossDomain: true,
           cache: false,
@@ -66,11 +66,11 @@
                 REPORT A HAZARD
             </h1>
 
-            <form name="hazard_form" id="hazard_form" class="hazard_form" method="get"> <!-- Formular to report a hazard -->
+            <form name="hazard_form" id="hazard_form" class="hazard_form" action="addhaz.php" method="post"> <!-- Formular to report a hazard -->
                 <input type="hidden" name="name_form" id="name_form" value="hazard_form"/>
 
                 <label for="user">User Name:</label><br>
-                <input type="text" name="user" id="user" pattern="^[a-zA-Z]{6,15}$" disabled><br>
+                <input type="text" name="user" id="user" pattern="^[a-zA-Z]{6,15}$" placeholder='Test' disabled><br>
 
                 <label for="coord">Coordinates:</label><br>
                 <input type="text" name="coord" id="coord" class="coord" placeholder="[Latitude, Longitude]" disabled></input> <br>

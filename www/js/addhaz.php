@@ -1,18 +1,19 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+session_start();
 //database login info
 	$host = '41.185.27.219';
 	$port = '5432';
 	$dbname = 'Devgroup2';
 	$user = 'devgroup2';
 	$password = 'hdU7eqKxW9kCdsG9';
-
+	$credentials "user=devgroup2 password=hdU7eqKxW9kCdsG9";
 //connect to postgresDB
-  $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-	if (!$conn) {
-	  echo "Not connected : " . pg_error();
-	  exit;
-	}
+  $conn = pg_connect("$host $port $dbname $credentials");
+	if ($conn) {
+	  echo "connected "
+	}else {
+		echo 'not connected'}
+
 
 // Set variables for sql query
 $id = "TEST"
