@@ -40,25 +40,42 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script>function submitHZ(){
-          console.log(latitude);
-          var user=$("#username").val();
-          var desc=$("#desc").val();
-          var type=$("#type").val();
-
-          var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&long="+longitude+"&lat="+latitude;
-
-          $.ajax({
-          type: "POST",
-          url:"http://41.185.27.219/devgroup2/addhaz.php",
-          data: dataString,
-          crossDomain: true,
-          cache: false,
-          });
-        };</script>
+        
 
         <title>Ingozi</title>
     </head>
+	<script>
+		function submitHZ(){
+		  console.log(latitude);
+		  var user=$("#username").val();
+		  var desc=$("#desc").val();
+		  var type=$("#type").val();
+
+		  var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&long="+longitude+"&lat="+latitude;
+
+		  $.ajax({
+		  type: "POST",
+		  url:"http://41.185.27.219/devgroup2/addhaz.php",
+		  data: dataString,
+		  crossDomain: true,
+		  cache: false,
+		  });
+		  
+		  
+		  type = document.getElementById("type").value;
+		  
+		  if (document.getElementById("type").value!="none"){
+			alert("The hazard has been register in the database.");
+			document.getElementById("type").value="";
+			document.getElementById("desc").value="";
+			document.getElementById("coord").value="";
+			
+			window.open("webmap.html");
+		  } else {
+			alert("The field 'Type of Hazard' is mandatory.");
+		  };
+        };
+	</script>
     <body>
 
         <section id="hazard_section" class="h_form_section"> <!-- Section with the buttons for register -->
@@ -94,6 +111,6 @@
             </form>
         </section>
 
-
     </body>
+	
 </html>
