@@ -15,3 +15,26 @@ body {
     height: auto;
     position: absolute;
 }
+
+
+/* ************************************* TEAM ************************************** */
+#team_info, #about {
+	background-color: lightblue;
+	padding: 0.5em;
+	border-radius: 1em;
+}
+.media-object {
+    border-radius: 5em;
+}
+
+p{
+	margin-bottom: 0;
+}
+
+#about .media-object {
+    border-radius: 0em;
+}
+
+.about {
+	margin: 1em;
+}
