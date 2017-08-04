@@ -1,2 +1,8 @@
-platforms/
 
+platforms/*
+
+plugin/*
+
+platforms/android/*
+
+platforms/android/*
