@@ -40,25 +40,49 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script>function submitHZ(){
-          console.log(latitude);
-          var user=$("#username").val();
-          var desc=$("#desc").val();
-          var type=$("#type").val();
+        <script type="text/javascript" src="js/camera.js"></script>
 
-          var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&long="+longitude+"&lat="+latitude;
 
-          $.ajax({
-          type: "POST",
-          url:"http://41.185.27.219/devgroup2/addhaz.php",
-          data: dataString,
-          crossDomain: true,
-          cache: false,
-          });
-        };</script>
 
         <title>Ingozi</title>
     </head>
+	<script>
+		function submitHZ(){
+		  console.log(latitude);
+		  var user=$("#username").val();
+		  var desc=$("#desc").val();
+		  var type=$("#type").val();
+
+      var dataString = {"userName":'TEST',"desc":desc,"type":type,"long":longitude,"lat":latitude};
+      var db=JSON.stringify(dataString);
+
+
+      $.ajax({
+      type: "POST",
+      url:"http://vi.frikancarto.co.za/js/addhaz.php", //"http://41.185.27.219/devgroup2/addhaz.php",
+      data: {json: db},
+      datatype:'json',
+      crossDomain: true,
+      cache: false,
+      success: function(data) {
+      console.log(data);
+      }
+      });
+
+		  type = document.getElementById("type").value;
+
+		  if (document.getElementById("type").value!="none"){
+			alert("The hazard has been registered in the database.");
+			document.getElementById("type").value="";
+			document.getElementById("desc").value="";
+			document.getElementById("coord").value="";
+
+			window.open("webmap.html");
+		  } else {
+			alert("The field 'Type of Hazard' is mandatory.");
+		  };
+        };
+	</script>
     <body>
 
         <section id="hazard_section" class="h_form_section"> <!-- Section with the buttons for register -->
@@ -78,9 +102,9 @@
                 <label for="type" class="type_label">Type of Hazard:</label></br>
                     <select name="type" id="type" required> <!-- ***************Introduce OnChange******************** -->
                         <option value="none">Select a type of Hazard</option>
-                        <option value="slope">Slope</option>
-                        <option value="electricity">Electricity</option>
-                        <option value="garbage">Garbage</option>
+                        <option value="Slope">Slope</option>
+                        <option value="Electrical">Electricity</option>
+                        <option value="Garbage">Garbage</option>
                     </select><br />
 
                 <label for="desc" class="desc_label">Description:</label></br>
@@ -94,6 +118,6 @@
             </form>
         </section>
 
-
     </body>
+
 </html>

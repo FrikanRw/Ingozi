@@ -40,8 +40,9 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="assets/jQuery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        
->>>>>>> Stashed changes
+        <script type="text/javascript" src="js/camera.js"></script>
+
+
 
         <title>Ingozi</title>
     </head>
@@ -52,16 +53,21 @@
 		  var desc=$("#desc").val();
 		  var type=$("#type").val();
 
-		  var dataString="&User name="+user+"&Description="+desc+"&type="+type+"&long="+longitude+"&lat="+latitude;
+      var dataString = {"userName":'TEST',"desc":desc,"type":type,"long":longitude,"lat":latitude};
+      var db=JSON.stringify(dataString);
 
-		  $.ajax({
-		  type: "POST",
-		  url:"http://41.185.27.219/devgroup2/addhaz.php",
-		  data: dataString,
-		  crossDomain: true,
-		  cache: false,
-		  });
 
+      $.ajax({
+      type: "POST",
+      url:"http://vi.frikancarto.co.za/js/addhaz.php", //"http://41.185.27.219/devgroup2/addhaz.php",
+      data: {json: db},
+      datatype:'json',
+      crossDomain: true,
+      cache: false,
+      success: function(data) {
+      console.log(data);
+      }
+      });
 
 		  type = document.getElementById("type").value;
 
@@ -96,9 +102,9 @@
                 <label for="type" class="type_label">Type of Hazard:</label></br>
                     <select name="type" id="type" required> <!-- ***************Introduce OnChange******************** -->
                         <option value="none">Select a type of Hazard</option>
-                        <option value="slope">Slope</option>
-                        <option value="electricity">Electricity</option>
-                        <option value="garbage">Garbage</option>
+                        <option value="Slope">Slope</option>
+                        <option value="Electrical">Electricity</option>
+                        <option value="Garbage">Garbage</option>
                     </select><br />
 
                 <label for="desc" class="desc_label">Description:</label></br>
